@@ -36,10 +36,9 @@ jobs:
 
        - name: "Build our Code"
          env:
-            IMAGE_NAME: designo
+            IMAGE_NAME: pix-max
             VERSION: latest
             USERNAME: epauldike
          run: |
              docker build -t $USERNAME/$IMAGE_NAME:$VERSION .
              docker push $USERNAME/$IMAGE_NAME:$VERSION
-
