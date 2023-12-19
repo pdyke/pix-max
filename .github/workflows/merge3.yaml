@@ -1,10 +1,10 @@
-name: Sync multiple branches
+name: Merge any release branch to master
 on:
   push:
     branches:
-      - '*'
+      - 'release/*'
 jobs:
-  sync-branch:
+  merge-branch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -13,6 +13,6 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: branch2
           target_branch: master
+          message: Merge staging into master
           github_token: ${{ secrets.GIT_TOKEN }}
